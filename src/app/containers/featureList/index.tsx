@@ -20,7 +20,8 @@ const Title = styled.div`
   padding-top: 6rem;
   padding-bottom: 10rem;
   @media (max-width: 376px) {
-    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 30px;
     padding-top: 4rem;
     padding-bottom: 4.1rem;
   }

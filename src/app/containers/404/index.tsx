@@ -37,6 +37,21 @@ const Main = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media (min-width: 1920px) {
+    img {
+      width: 85.3rem;
+      height: 78.8rem;
+    }
+  }
+
+  @media (max-width: 376px) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 321px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Panel = styled.div`
@@ -66,6 +81,8 @@ const Panel = styled.div`
     color: #282c37;
     font-weight: bold;
     font-size: 2rem;
+    border: none;
+    outline: none;
   }
 
   @media (max-width: 769px) {
@@ -77,7 +94,7 @@ const Panel = styled.div`
   }
 
   @media (max-width: 376px) {
-    margin-top: 0rem;
+    margin-top: 3rem;
 
     .bigText {
       font-size: 5.5rem;
@@ -85,6 +102,26 @@ const Panel = styled.div`
 
     .smallText {
       font-size: 3.8rem;
+    }
+
+    .buttonStyled {
+      margin-top: 3rem;
+      height: 3.6rem;
+      width: 15rem;
+      border-radius: 2rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 321px) {
+    margin-top: 2rem;
+
+    .bigText {
+      font-size: 5rem;
+    }
+
+    .smallText {
+      font-size: 3rem;
     }
 
     .buttonStyled {

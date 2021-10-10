@@ -33,7 +33,7 @@ export function App() {
         <Route exact path="/search" component={PageSearch} />
         <Route exact path="/login" component={PageSign} />
         <Route exact path="/loginlend" component={PageSearchLend} />
-        <Route component={Not404} />
+        <Route exact path="/not-found" component={Not404} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>

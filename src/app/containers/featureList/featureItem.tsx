@@ -57,6 +57,7 @@ const Title = styled.div`
   @media (max-width: 376px) {
     font-size: 1.8rem;
     padding-top: 1rem;
+    line-height: 2.2rem;
   }
 `;
 
@@ -73,6 +74,7 @@ const Description = styled.div`
 
   @media (max-width: 376px) {
     font-size: 1.4rem;
+    line-height: 1.7rem;
     padding-top: 0.8rem;
   }
 `;
