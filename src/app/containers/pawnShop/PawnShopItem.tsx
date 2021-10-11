@@ -8,7 +8,7 @@ import starIcon from '../../../images/star_icon.svg';
 
 const PawnShop = styled.div`
   background: #282c37;
-  border-radius: 2rem;
+  border-radius: 20px;
   padding: 2rem;
   margin-bottom: 2rem;
   letter-spacing: 0.04rem;
@@ -232,6 +232,7 @@ const PawnShop = styled.div`
         top: 0;
         right: -4%;
         width: 56%;
+        /* height: 10%; */
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

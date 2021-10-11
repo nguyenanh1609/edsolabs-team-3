@@ -53,7 +53,6 @@ const P2P = styled.div`
       margin-top: 0.8rem;
       & img {
         margin-right: 0.5rem;
-        transform: translateY(-18%);
       }
       span {
         margin: 0 1.6rem;

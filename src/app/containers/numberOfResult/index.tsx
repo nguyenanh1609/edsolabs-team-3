@@ -14,14 +14,15 @@ const NumberResultBorrow = styled.div`
     line-height: 2rem;
   }
 `;
-export function NumberOfResult(props) {
+export function NumberOfResult() {
+  const amountResult = 10;
   return (
     <>
       <Helmet>
         <meta name="description" content="Page not found" />
       </Helmet>
       <NumberResultBorrow>
-        {props.amount} {props.content}
+        {amountResult} pawnshop packages match your search
       </NumberResultBorrow>
     </>
   );
