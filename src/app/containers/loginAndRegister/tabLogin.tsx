@@ -50,10 +50,20 @@ const TabPaneLogin = styled(TabPane)`
   }
 
   .aStyle {
-    right: 0rem;
-    color: #e0e0e0;
-    font-size: 1.6rem;
-    line-height: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      color: #e0e0e0;
+      font-size: 1.2rem;
+      line-height: 1rem;
+    }
+
+    @media (min-width: 1440px) {
+      width: 58.4rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
   }
 
   @media (max-width: 376px) {
@@ -113,6 +123,7 @@ export default function TabLogin({ id }: props) {
       history.push('/');
     }
   }, [islogin]);
+
   const {
     register,
     formState: { errors },
@@ -122,6 +133,7 @@ export default function TabLogin({ id }: props) {
   const onSubmit = (data: IFormInput) => {
     dispath(authActions.login(data));
   };
+
   const [hide, setHide] = useState<boolean>(true);
   const getHide = () => setHide(!hide);
 
@@ -156,9 +168,9 @@ export default function TabLogin({ id }: props) {
           }
         />
 
-        <a href="//" className="aStyle">
-          Forgot your password?
-        </a>
+        <div className="aStyle">
+          <a href="//">Forgot your password?</a>
+        </div>
 
         <div className="divButton">
           <button type="submit" className="buttonStyled">
