@@ -19,7 +19,6 @@ interface IFormInput {
 }
 
 const AU_SITE_KEY: string = '6LcSG9EaAAAAABvbpHkdugGmjEWeYPp6NoPPDEvt';
-const AU_SECRET_KEY: string = '6Lc8HrgcAAAAAEHCvI0OVfuCY3hWCGyQE3DvgdPV';
 
 const TabPaneLogin = styled(TabPane)`
   padding-top: 3rem;
