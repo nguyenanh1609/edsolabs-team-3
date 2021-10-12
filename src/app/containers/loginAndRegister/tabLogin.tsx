@@ -12,6 +12,8 @@ import { useHistory } from 'react-router';
 import { useAppSelector } from 'redux/hocks';
 
 const TabPaneLogin = styled(TabPane)`
+  display: flex;
+  flex-direction: column;
   padding-top: 3rem;
 
   .pError {
@@ -45,6 +47,13 @@ const TabPaneLogin = styled(TabPane)`
     font-size: 1.6rem;
     border: none;
     outline: none;
+  }
+
+  .aStyle {
+    right: 0rem;
+    color: #e0e0e0;
+    font-size: 1.6rem;
+    line-height: 2rem;
   }
 
   @media (max-width: 376px) {
@@ -146,6 +155,10 @@ export default function TabLogin({ id }: props) {
             )
           }
         />
+
+        <a href="//" className="aStyle">
+          Forgot your password?
+        </a>
 
         <div className="divButton">
           <button type="submit" className="buttonStyled">
