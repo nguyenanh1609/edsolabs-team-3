@@ -133,7 +133,7 @@ export function Navbar(props) {
                   </AccountZone>
                 ) : (
                   <ButtonNavBar color={''} status={''}>
-                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/login?tab=1">Login</NavLink>
                   </ButtonNavBar>
                 )}
                 <HamburgerMenu onClick={openMenu}>
