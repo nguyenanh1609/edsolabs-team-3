@@ -33,6 +33,7 @@ export function App() {
         <Route exact path="/">
           <Redirect to="/pawn" />
         </Route>
+        <Route exact path="/pawn/lender/nft-result" component={PageSearchNft} />
         <Route exact path="/pawn" component={PageHome} />
         <Route exact path="/pawn/offer" component={PageSearch} />
         <Route exact path="/login">
@@ -43,7 +44,6 @@ export function App() {
           )}
         </Route>
         <Route exact path="/pawn/lender" component={PageSearchLend} />
-        <Route exact path="/pawn/lender/nft-result" component={PageSearchNft} />
         <Route component={Not404} />
       </Switch>
       <GlobalStyle />

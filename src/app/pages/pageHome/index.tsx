@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { AdsHome } from 'app/containers/adsHome';
 import { FeatureList } from 'app/containers/featureList';
 import { Footer } from 'app/containers/footer';
@@ -8,6 +8,7 @@ import { TabsHome } from 'app/containers/tabsHome';
 import { Helmet } from 'react-helmet-async';
 import { Container } from 'reactstrap';
 import { Section } from './style';
+import TermsOfService from '../../components/termsOfService/index';
 // import { useState, useEffect } from 'react';
 export function PageHome() {
   document.title = 'home';
@@ -17,8 +18,23 @@ export function PageHome() {
   // };
   // window.addEventListener('resize', a);
   // console.log(state);
+  const [modal, setModal] = useState(false);
+  if (
+    localStorage.hasOwnProperty('access_token') &&
+    !localStorage.hasOwnProperty('terms-and-conditions')
+  ) {
+    setTimeout(() => {
+      setModal(true);
+    }, 3000);
+  }
+  const toggle = () => {
+    localStorage.setItem('terms-and-conditions', '1');
+    setModal(!modal);
+  };
+
   return (
     <>
+      <TermsOfService isOpen={modal} handleAccept={toggle} />
       <Helmet>
         <title>DeFi For You | DeFi For You UK</title>
         <meta name="description" content="A Boilerplate application homepage" />

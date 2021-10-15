@@ -35,6 +35,14 @@ export const WarperFilterNav = styled.div<any>`
     border-radius: 0px;
     display: ${p => (p.status ? 'block' : 'none')};
   }
+  @media (max-width: 1199px) {
+    position: fixed;
+    top: -30px;
+    bottom: 0;
+    right: 0;
+    border-radius: 0px;
+    display: ${p => (p.status ? 'block' : 'none')};
+  }
   @media (max-width: 768px) {
     position: fixed;
     top: -30px;

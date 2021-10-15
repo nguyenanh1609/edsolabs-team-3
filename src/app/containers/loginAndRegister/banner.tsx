@@ -23,7 +23,7 @@ const Image = styled.img`
     margin-bottom: 2.4rem;
   }
 
-  @media (max-width: 376px) {
+  @media (width: 375px) {
     margin: 0px auto;
     margin-top: 3.2rem;
     margin-bottom: 2.4rem;
@@ -31,7 +31,7 @@ const Image = styled.img`
     height: 313px;
   }
 
-  @media (max-width: 321px) {
+  @media (max-width: 374px) {
     width: 100%;
     height: auto;
   }

@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
-export const PawnShop = styled.div`
+export const NftShop = styled.div`
   background: #282c37;
   border-radius: 2rem;
   padding: 2rem;
   margin-bottom: 2rem;
   letter-spacing: 0.04rem;
+  position: relative;
 
-  .pawn {
+  .nft {
     display: flex;
     flex-wrap: wrap;
     &__shop {
@@ -15,18 +16,16 @@ export const PawnShop = styled.div`
       width: 70%;
     }
     &__img {
-      width: 23.3rem;
-      position: relative;
+      width: 21.5rem;
       &-shop {
         width: 100%;
         height: 100%;
-        border-radius: 0.8rem;
+        border-radius: 2rem;
         object-fit: cover;
       }
-      &-icon {
+      &-label {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        left: -0.8rem;
       }
     }
     &__content {
@@ -62,7 +61,6 @@ export const PawnShop = styled.div`
     }
     &__details {
       padding-left: 0;
-      margin-top: 3rem;
       padding: 0.7rem 0;
       &-item {
         font-size: 1.6rem;
@@ -71,10 +69,24 @@ export const PawnShop = styled.div`
       }
       &-label {
         color: #a2a3a7;
-        min-width: 10rem;
+        min-width: 15rem;
       }
       &-result {
         color: #ffffff;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        &--blue {
+          color: #2596ff;
+          text-decoration: underline;
+        }
+        img {
+          margin-right: 0.6rem;
+          margin-bottom: 0.5rem;
+        }
       }
     }
     &__interest {
@@ -122,29 +134,20 @@ export const PawnShop = styled.div`
     &__method {
       font-style: normal;
       font-weight: 500;
-      font-size: 1.4rem;
-      line-height: 1.7rem;
+      line-height: 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       margin-bottom: 1.1rem;
-      &--auto {
-        color: #2596ff;
-        background: rgba(37, 150, 255, 0.2);
-        border: 0.1rem solid #2596ff;
-      }
-      &--semi-auto {
-        color: #fe951a;
-        border: 0.1rem solid #fe951a;
-        background: rgba(254, 149, 26, 0.2);
-      }
-      &--negotiation {
-        color: #ff4848;
-        border: 0.1rem solid #ff4848;
-        background: rgba(255, 72, 72, 0.2);
+      letter-spacing: 0.04rem;
+      border: 0.1rem solid #dba83d;
+      background: transparent;
+      padding-top: 0.2rem;
+      img {
+        padding-bottom: 0.1rem;
       }
     }
-    &__view {
+    &__offer {
       background: linear-gradient(
         221.15deg,
         #bd8727 0%,
@@ -153,98 +156,47 @@ export const PawnShop = styled.div`
         #bd8727 101.47%
       );
       border: none;
+      margin-top: 6rem;
     }
   }
-  @media screen and (max-width: 1200px) {
-    .pawn {
-      &__img {
-        width: 14rem;
-        img {
-          height: auto;
-        }
+  @media screen and (max-width: 991px) {
+    .nft {
+      &__content {
+        border-bottom: 0.1rem solid #9bcfff36;
+        border-right: none;
+      }
+      &__interest {
+        width: 100%;
+        margin: 1.2rem auto 0;
+        align-items: flex-start;
+      }
+      &__rate-label {
+        text-align: left;
       }
       &__name {
         font-size: 1.8rem;
-        & > img {
-          display: none;
-        }
       }
       &__rate-result {
         font-size: 2rem;
       }
+      &__offer {
+        margin-top: 2.4rem;
+      }
     }
   }
   @media screen and (max-width: 767px) {
-    .pawn {
-      flex-direction: column;
-      &__shop {
-        display: flex;
-        width: 100%;
-      }
+    .nft {
       &__img {
-        width: 40%;
+        margin: 0 auto;
       }
       &__content {
+        flex: none;
         width: 100%;
-        border-bottom: 0.1rem solid #9bcfff36;
-        border-right: none;
-      }
-
-      &__details {
-        margin-top: 0;
-      }
-      &__interest {
-        width: 100%;
-        align-items: flex-start;
         margin-top: 2rem;
-        p {
-          text-align: left;
-        }
-      }
-      &__view {
-        height: 4.2rem;
-        min-width: 14.5rem;
-      }
-    }
-  }
-  @media screen and (max-width: 575px) {
-    padding: 1.2rem;
-    .pawn {
-      position: relative;
-      height: auto;
-      flex-direction: column;
-      &__shop {
-        width: 100%;
-        flex-direction: column;
-      }
-      &__content {
         margin-left: 0;
       }
-      &__name {
-        position: absolute;
-        top: 0;
-        right: -4%;
-        width: 56%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-      }
-      &__img {
-        width: 44%;
-      }
       &__details {
-        margin-top: 1.2rem;
-      }
-    }
-  }
-  @media screen and (max-width: 375px) {
-    .pawn {
-      &__img {
-        width: 45%;
-      }
-      &__name {
-        right: -4%;
-        height: auto;
+        padding: 2rem 0 0;
       }
     }
   }

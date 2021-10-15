@@ -1,36 +1,56 @@
 import React from 'react';
 import { GrInput, WarperInput } from './style';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { SelectAll } from 'app/components/select/select';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 export function TabLendForm() {
-  const [dataSearch, setdataSearch] = useState<any>({ Collateral: '1' });
+  const history = useHistory();
+  const queryString = require('query-string');
+  const [Collateral, setCollateral] = useState<any>(true);
   const {
     handleSubmit,
     register,
     formState: { errors },
+    control,
   } = useForm();
   const onSubmit = data => {
-    setdataSearch({ ...dataSearch, dataSumMit: data });
-  };
-  const onChangeRadio = e => {
-    if (dataSearch.Collateral === '1') {
-      setdataSearch({
-        ...dataSearch,
-        CollateralList: null,
-        Collateral: e.target.value,
+    if (Collateral === true) {
+      const newObj = {
+        collateralSymbols: [],
+        durationQty: Number(data.durationQty),
+        durationTypes: Number(data.durationTypes.value),
+        loanAmount: Number(data.loanAmount),
+        loanSymbols: data.loanSymbols.value,
+        size: 10,
+      };
+      const newArr = data.collateralSymbols.map(value => value.value);
+      newObj.collateralSymbols = newArr;
+      console.log('true', newObj);
+      history.push({
+        pathname: '/pawn/lender',
+        search: queryString.stringify(newObj),
       });
     } else {
-      setdataSearch({ ...dataSearch, Collateral: e.target.value });
+      const newObj = {
+        //collateralSymbols: data.collateralSymbols,
+        durationQty: Number(data.durationQty),
+        durationTypes: Number(data.durationTypes.value),
+        loanAmount: Number(data.loanAmount),
+        loanSymbols: data.loanSymbols.value,
+        size: 10,
+        page: 0,
+      };
+      console.log('ô âu phàn này', newObj);
+      history.push({
+        pathname: '/pawn/lender/nft-result',
+        search: queryString.stringify(newObj),
+      });
     }
   };
-  const handleOnchange1 = (e: any) => {
-    setdataSearch({ ...dataSearch, Maximumloanamount: e });
+  const onChangeRadio = e => {
+    setCollateral(!Collateral);
   };
-  const handleOnchange2 = (e: any) => {
-    setdataSearch({ ...dataSearch, CollateralList: e });
-  };
-  console.log('form lend', dataSearch);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <GrInput>
@@ -45,7 +65,7 @@ export function TabLendForm() {
               type="text"
               placeholder="Enter amount"
               autoComplete="off"
-              {...register('Maximum', { required: true })}
+              {...register('loanAmount', { required: true })}
             />
             {errors.Maximum && (
               <span className="errValiInput">
@@ -55,14 +75,29 @@ export function TabLendForm() {
             <button className="btn__max-lend">Max</button>
           </WarperInput>
           <WarperInput width="111px" height="44px">
-            <SelectAll
-              onChanges={handleOnchange1}
-              default={false}
-              heightOption="255px"
-              placeholder="All"
-              isMuli={false}
-              option={'2'}
-            ></SelectAll>
+            <Controller
+              control={control}
+              name="loanSymbols"
+              // rules={{
+              //   required: true,
+              // }}
+              render={({ field: { onChange, value, ref } }) => (
+                <SelectAll
+                  tab="lend"
+                  value={value}
+                  onChange={onChange}
+                  default={true}
+                  heightOption="255px"
+                  placeholder="All"
+                  isMuli={false}
+                  option={'2'}
+                  error={Boolean(errors.loanSymbols)}
+                ></SelectAll>
+              )}
+            />
+            {errors.loanSymbols && (
+              <span className="warning__input">Invalid amount</span>
+            )}
           </WarperInput>
         </div>
       </GrInput>
@@ -72,15 +107,15 @@ export function TabLendForm() {
           <WarperInput
             width="417px"
             height="44px"
-            border={Boolean(errors.Duration)}
+            border={Boolean(errors.durationQty)}
           >
             <input
               type="text"
               autoComplete="off"
-              placeholder="Duration"
-              {...register('Duration', { required: true })}
+              placeholder="durationQty"
+              {...register('durationQty', { required: true })}
             />
-            {errors.Duration && (
+            {errors.durationQty && (
               <>
                 <span className="errValiInput">Invalid duration</span>
                 <fieldset></fieldset>
@@ -88,14 +123,29 @@ export function TabLendForm() {
             )}
           </WarperInput>
           <WarperInput width="111px" height="44px">
-            <SelectAll
-              onChanges={handleOnchange1}
-              default={false}
-              heightOption="255px"
-              placeholder="All"
-              isMuli={false}
-              option={'1'}
-            ></SelectAll>
+            <Controller
+              control={control}
+              name="durationTypes"
+              // rules={{
+              //   required: true,
+              // }}
+              render={({ field: { onChange, value, ref } }) => (
+                <SelectAll
+                  tab="lend"
+                  value={value}
+                  onChange={onChange}
+                  default={true}
+                  heightOption="255px"
+                  placeholder="All"
+                  isMuli={false}
+                  option={'3'}
+                  error={Boolean(errors.durationTypes)}
+                ></SelectAll>
+              )}
+            />
+            {errors.durationTypes && (
+              <span className="warning__input">Invalid amount</span>
+            )}
           </WarperInput>
         </div>
       </GrInput>
@@ -123,17 +173,33 @@ export function TabLendForm() {
           <span>NFT</span>
         </div>
       </GrInput>
-      {dataSearch.Collateral === '1' ? (
+      {Collateral ? (
         <GrInput>
           <div className="">
             <WarperInput width="540px" height="" className="input__full">
-              <SelectAll
-                onChanges={handleOnchange2}
-                default={false}
-                heightOption="255px"
-                placeholder="Currency"
-                isMuli={true}
-              ></SelectAll>
+              <Controller
+                control={control}
+                name="collateralSymbols"
+                // rules={{
+                //   required: true,
+                // }}
+                render={({ field: { onChange, value, ref } }) => (
+                  <SelectAll
+                    tab="lend"
+                    value={value}
+                    onChange={onChange}
+                    default={true}
+                    heightOption="255px"
+                    placeholder="All"
+                    isMuli={true}
+                    option={'1'}
+                    error={Boolean(errors.collateralSymbols)}
+                  ></SelectAll>
+                )}
+              />
+              {errors.collateralSymbols && (
+                <span className="warning__input">Invalid amount</span>
+              )}
             </WarperInput>
           </div>
         </GrInput>

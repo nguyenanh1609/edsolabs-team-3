@@ -230,9 +230,42 @@ export function SelectAll(props: any) {
               onChange={props.onChange}
             ></SelectA>
           )
+        ) : //tab lend
+        props.isMuli ? (
+          <SelectA
+            isMulti
+            defaultValue={props.value}
+            options={
+              props.option === '1'
+                ? options1
+                : props.option === '2'
+                ? options2
+                : options3
+            }
+            styles={styles}
+            components={{
+              IndicatorSeparator: () => null,
+            }}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+          ></SelectA>
         ) : (
-          ''
-          //tab lend
+          <SelectA
+            defaultValue={props.value}
+            options={
+              props.option === '1'
+                ? options1
+                : props.option === '2'
+                ? options2
+                : options3
+            }
+            styles={styles}
+            components={{
+              IndicatorSeparator: () => null,
+            }}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+          ></SelectA>
         )}
       </>
       {/* {props.option === '1' ? (

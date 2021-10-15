@@ -120,11 +120,21 @@ export function FiterNavSearch(props: any) {
             >
               <div className="accordion-body">
                 <div className="checkbox__custom">
-                  <input type="checkbox" name="Loantype" value="Auto" />
+                  <input
+                    type="checkbox"
+                    name="Loantype"
+                    value="Auto"
+                    disabled
+                  />
                   <span>Auto</span>
                 </div>
                 <div className="checkbox__custom">
-                  <input type="checkbox" name="Loantype" value="Semi-auto" />
+                  <input
+                    type="checkbox"
+                    name="Loantype"
+                    value="Semi-auto"
+                    disabled
+                  />
                   <span>Semi-auto</span>
                 </div>
               </div>
@@ -150,11 +160,11 @@ export function FiterNavSearch(props: any) {
             >
               <div className="accordion-body">
                 <div className="checkbox__custom">
-                  <input type="checkbox" name="Duration" value="Week" />
+                  <input type="checkbox" name="Duration" value="0" />
                   <span>Week</span>
                 </div>
                 <div className="checkbox__custom">
-                  <input type="checkbox" name="Duration" value="Month" />
+                  <input type="checkbox" name="Duration" value="1" />
                   <span>Month</span>
                 </div>
               </div>

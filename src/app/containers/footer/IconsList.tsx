@@ -1,34 +1,10 @@
-import styled from 'styled-components/macro';
 import github from '../../../images/github_icon.svg';
 import tele from '../../../images/tele_icon.svg';
 import fb from '../../../images/fb_icon.svg';
 import youtube from '../../../images/youtube_icon.svg';
 import lin from '../../../images/lin_icon.svg';
 import twitter from '../../../images/twitter_icon.svg';
-const IconLink = styled.div`
-  height: 14rem;
-  margin-bottom: 5.6em;
-  p {
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-    margin-bottom: 2.4rem;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  .icons {
-    width: 28rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  @media screen and (max-width: 575px) {
-    height: 10rem;
-    margin-bottom: 0;
-    .icons {
-      width: 24rem;
-    }
-  }
-`;
+import { IconLink } from './style';
 
 const IconsList = () => {
   return (

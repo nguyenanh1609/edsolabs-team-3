@@ -1,74 +1,8 @@
-import styled from 'styled-components/macro';
 import vn from '../../../images/flag.vn.svg';
 import en from '../../../images/flag.en.svg';
 import { HiArrowNarrowRight } from '@react-icons/all-files/hi/HiArrowNarrowRight';
+import { AddressItem, AddressList } from './style';
 
-const AddressList = styled.div`
-  ul {
-    height: 33.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 0;
-  }
-
-  li {
-    list-style: none;
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-    margin-bottom: 5.6rem;
-    font-weight: 500;
-  }
-  @media screen and (max-width: 575px) {
-    li {
-      margin-bottom: 3rem;
-    }
-    .phone-LD {
-      a {
-        display: block;
-        width: 18rem !important;
-        line-height: 3rem;
-      }
-      img {
-        margin-left: 1.7rem;
-      }
-    }
-  }
-`;
-const AddressItem = styled.div`
-  .title {
-    color: #ffffff;
-    font-weight: bold;
-    padding-bottom: 2.4rem;
-    margin: 0;
-  }
-  .phone {
-    padding-bottom: 0.8rem;
-  }
-  a {
-    text-decoration: none;
-    color: #dba83d;
-    display: flex;
-    width: 15rem;
-    justify-content: space-between;
-  }
-  .phone-LD {
-    a {
-      width: 30rem;
-    }
-  }
-  .view-companies {
-    min-width: 21rem;
-    align-items: center;
-    transition: 0.4s;
-    &:hover {
-      margin-left: 2rem;
-    }
-  }
-  p {
-    color: #9fa6b2;
-  }
-`;
 export function Address() {
   return (
     <AddressList>

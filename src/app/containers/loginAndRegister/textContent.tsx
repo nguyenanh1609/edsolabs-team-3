@@ -62,6 +62,10 @@ const SmallText = styled.div`
     line-height: 2rem;
     width: 100%;
   }
+
+  @media (max-width: 769px) {
+    width: 100%;
+  } ;
 `;
 
 export default function textContent() {

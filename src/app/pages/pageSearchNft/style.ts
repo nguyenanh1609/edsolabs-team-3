@@ -15,6 +15,9 @@ export const Filter = styled(Col)`
   @media (max-width: 1280px) {
     display: none;
   }
+  @media (max-width: 1199px) {
+    display: block;
+  }
   @media (max-width: 1024px) {
     display: block;
   }

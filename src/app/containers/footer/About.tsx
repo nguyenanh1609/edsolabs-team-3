@@ -1,31 +1,5 @@
-import styled from 'styled-components/macro';
+import { AboutFooter } from './style';
 
-const AboutFooter = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-  .about {
-    margin-top: 5.6rem;
-    font-size: 1.4rem;
-    &__title {
-      font-weight: bold;
-      color: #ffffff;
-      padding-bottom: 2.4rem;
-      margin: 0;
-    }
-
-    &__name {
-      color: #dba83d;
-      font-weight: 600;
-      line-height: 1.7rem;
-    }
-
-    &__desc {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.694rem;
-      font-weight: 400;
-      color: #9fa6b2;
-    }
-  }
-`;
 const About = () => {
   return (
     <AboutFooter>

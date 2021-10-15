@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { TabPane } from 'reactstrap';
 import styled from 'styled-components';
 import InputCustom from './inputCustom';
@@ -19,6 +20,22 @@ const TabPaneLogin = styled(TabPane)`
     font-size: 1.2rem;
     line-height: 1.2rem;
     padding-top: 0.4rem;
+  }
+
+  .aStyle {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      color: #e0e0e0;
+      font-size: 1.2rem;
+      line-height: 1rem;
+    }
+    @media (min-width: 1440px) {
+      width: 58.4rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
   }
 
   .divButton {
@@ -78,7 +95,7 @@ const TabPaneLogin = styled(TabPane)`
     }
   }
 
-  @media (max-width: 1025px) {
+  @media (max-width: 1201px) {
     .divButton {
       width: 100%;
     }
@@ -144,6 +161,10 @@ export default function TabLogin({ id }: props) {
             )
           }
         />
+
+        <div className="aStyle">
+          <a href="//">Forgot your password?</a>
+        </div>
 
         <div className="divButton">
           <button type="submit" className="buttonStyled">

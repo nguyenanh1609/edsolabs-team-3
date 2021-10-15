@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const RowNavBar = styled(Row)`
   max-height: 100px;
   padding: 20px 30px;
-  background-color: #232732;
+  background-color: #282c37;
   color: #d1d1d3;
   border-bottom: 1px solid #4f4f4f;
   @media (max-width: 600px) {
@@ -15,6 +15,7 @@ export const RowNavBar = styled(Row)`
 `;
 export const AccountZone = styled.div`
   display: inline-block;
+  position: relative;
   & > img {
     width: 31px;
     height: 31px;
@@ -25,6 +26,33 @@ export const AccountZone = styled.div`
     font-weight: 500;
     font-size: 16px;
     color: #fff;
+  }
+  & > ul {
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+      0 3px 14px 2px rgb(0 0 0 / 12%);
+    list-style-type: none;
+    padding: 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    background-color: red;
+    position: absolute;
+    top: 42px;
+    border-radius: 10px;
+    background-color: rgb(62, 65, 75);
+    margin: 0;
+    hr {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 5px 10px;
+      text-align: center;
+      border-radius: 10px;
+      :hover {
+        background-color: rgb(92 94 102);
+      }
+    }
   }
   @media (max-width: 1440px) {
     & > span {
@@ -47,6 +75,12 @@ export const ButtonNavBar = styled(Button)`
     props.color
       ? 'linear-gradient(221.15deg, #BD8727 0%, #FFD574 49.02%, #FECA50 62.02%, #BD8727 101.47%)'
       : 'transparent'};
+
+  &:hover {
+    opacity: 0.7;
+    transition: all ease-in-out 0.5s;
+  }
+
   a {
     text-decoration: none;
     font-weight: 500;

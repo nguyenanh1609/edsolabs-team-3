@@ -17,6 +17,11 @@ export const Button = styled.button`
   margin-bottom: 1rem;
   border-radius: 17.2rem;
   border: none;
+
+  &:hover {
+    opacity: 0.7;
+    transition: all ease-in-out 0.5s;
+  }
   @media (max-width: 540px) {
     font-size: 1.4rem;
     margin-bottom: 0;

@@ -1,12 +1,30 @@
-import React from 'react';
-import { Container } from 'reactstrap';
-import { ButtonGroup, Button, List, H3, Box, Paper, Span } from './styled';
-export default function TermsOfService() {
+import React, { useState } from 'react';
+import {
+  ButtonGroup,
+  Button,
+  List,
+  H3,
+  Box,
+  Paper,
+  Span,
+  ModalBG,
+} from './styled';
+
+export default function TermsOfService(props) {
+  const [typeBtn, setTypeBtn] = useState(true);
+  const [colorBtn, setColorBtn] = useState('disable');
+
+  const funcScroll = e => {
+    if (e.target.scrollTop === e.target.scrollHeight - e.target.clientHeight) {
+      setTypeBtn(false);
+      setColorBtn('gradiend');
+    }
+  };
   return (
-    <Container>
+    <ModalBG isOpen={props.isOpen}>
       <Paper>
         <H3>Terms of Service</H3>
-        <Box className="overflow-auto">
+        <Box className="overflow-auto" onScroll={funcScroll}>
           <Span>DeFi For You Crypto Ethics & Regulation UK</Span>
           <List>
             The crypto digital ecosystem is a challenger to the existing
@@ -50,12 +68,27 @@ export default function TermsOfService() {
             CListents and users are assured that we are a company that treats
             customers fairly.
           </List>
+          <List>
+            CListents and users are assured that we are a company that treats
+            customers fairly.
+          </List>
+          <List>
+            CListents and users are assured that we are a company that treats
+            customers fairly.
+          </List>
         </Box>
         <ButtonGroup>
           <Button color={''}>Decline</Button>
-          <Button color={'gradiend'}>Accept</Button>
+          <Button
+            color={colorBtn}
+            onClick={props.handleAccept}
+            disabled={typeBtn}
+            className="btn-disable"
+          >
+            Accept
+          </Button>
         </ButtonGroup>
       </Paper>
-    </Container>
+    </ModalBG>
   );
 }

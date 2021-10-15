@@ -55,10 +55,14 @@ export function Navbar(props) {
       document.body.style.overflow = 'auto';
     }
   };
+  const [statusBlockLogout, setstatusBlockLogout] = useState(false);
   const logout = () => {
     dispath(authActions.logout());
-    alert(window.location.pathname);
+    setstatusBlockLogout(!statusBlockLogout);
     history.push('/');
+  };
+  const onClickBlock = () => {
+    setstatusBlockLogout(!statusBlockLogout);
   };
   const openDownMenuMobile = value => {
     switch (value) {
@@ -110,13 +114,22 @@ export function Navbar(props) {
                 <ButtonNavBar color={''} status={''}>
                   <NavLink to="/">Buy DFY</NavLink>
                 </ButtonNavBar>
-                <ButtonNavBar color={''} status={'true'} onClick={logout}>
+                <ButtonNavBar color={''} status={'true'}>
                   <NavLink to="/">Connect</NavLink>
                 </ButtonNavBar>
                 {localStorage.getItem('access_token') ? (
-                  <AccountZone>
+                  <AccountZone onClick={onClickBlock}>
                     <img src={avatarMenu} alt="" />
                     <span>{accName?.data?.name}</span>
+                    {statusBlockLogout ? (
+                      <ul>
+                        <li>change pass</li>
+                        <hr />
+                        <li onClick={logout}>logout</li>
+                      </ul>
+                    ) : (
+                      ''
+                    )}
                   </AccountZone>
                 ) : (
                   <ButtonNavBar color={''} status={''}>

@@ -18,6 +18,14 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
+  .iconErr {
+    font-size: 2.4rem;
+    color: rgb(255, 72, 72);
+    margin-left: -3.4rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
   .error {
     border: 1px solid rgb(255, 72, 72);
     &:focus {
@@ -26,7 +34,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1440px) {
     width: 58.4rem;
   }
 `;
@@ -100,12 +108,15 @@ export default function InputCustom({
       <Label>{label}</Label>
       <div className="inputDiv">
         <InputStyled
+          autoComplete="off"
           type={type}
           placeholder={placeHolder}
           {...register}
           className={classnames({ error: err !== false })}
         />
-        {Icon && <Icon className="icon" onClick={iconClick} />}
+        {Icon && (
+          <Icon className={err ? 'iconErr' : 'icon'} onClick={iconClick} />
+        )}
       </div>
       {err}
     </Wrapper>
